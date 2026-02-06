@@ -2,6 +2,8 @@ const VALID_STATES = ['idle', 'moving', 'gathering', 'building', 'exploring'];
 const MOVE_SPEED = 3; // tiles per second
 
 export default class Agent {
+  static get VALID_STATES() { return VALID_STATES; }
+
   constructor(id, name, x = 0, y = 0, color = '#ff5555') {
     this.id = id;
     this.name = name;
