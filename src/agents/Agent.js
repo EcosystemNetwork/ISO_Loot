@@ -4,12 +4,13 @@ const MOVE_SPEED = 3; // tiles per second
 export default class Agent {
   static get VALID_STATES() { return VALID_STATES; }
 
-  constructor(id, name, x = 0, y = 0, color = '#ff5555') {
+  constructor(id, name, x = 0, y = 0, color = '#ff5555', spriteType = null) {
     this.id = id;
     this.name = name;
     this.x = x;
     this.y = y;
     this.color = color;
+    this.spriteType = spriteType;
     this.state = 'idle';
     this.inventory = [];
     this.currentAction = null;
@@ -19,6 +20,9 @@ export default class Agent {
     // smooth movement internals
     this._targetX = x;
     this._targetY = y;
+
+    // auto-explore timer
+    this._idleTimer = 0;
   }
 
   moveTo(x, y) {
@@ -86,6 +90,17 @@ export default class Agent {
         this.currentAction = null;
       }
       return;
+    }
+
+    // auto-explore when idle with no queued actions
+    if (this.state === 'idle' && this.actionQueue.length === 0) {
+      this._idleTimer += deltaTime;
+      if (this._idleTimer >= 3) {
+        this._idleTimer = 0;
+        this.explore();
+      }
+    } else {
+      this._idleTimer = 0;
     }
 
     // pick next action from queue

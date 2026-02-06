@@ -16,9 +16,14 @@ export default class Game {
 
     // generate map & default agents
     this.state.generateMap(12, 12);
-    this.state.addAgent('Atlas', 2, 2, '#e74c3c');
-    this.state.addAgent('Nova',  6, 4, '#3498db');
-    this.state.addAgent('Echo',  9, 8, '#2ecc71');
+    this.state.addAgent('Atlas', 2, 2, '#e74c3c', 'Golem');
+    this.state.addAgent('Nova',  6, 4, '#3498db', 'Spider');
+    this.state.addAgent('Echo',  9, 8, '#2ecc71', 'Monkey');
+
+    // load video sprites for each agent type
+    this.engine.loadSprite('Golem',  'src/Public/Golem/GolemWalk.mp4');
+    this.engine.loadSprite('Spider', 'src/Public/Spider/SpiderWalk.mp4');
+    this.engine.loadSprite('Monkey', 'src/Public/Monkey/MonkeyWalk.mp4');
 
     this.state.addMessage('Welcome to ISO Loot! Type a command below.');
 

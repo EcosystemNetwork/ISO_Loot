@@ -12,8 +12,8 @@ export default class GameState {
     this._nextId = 1;
   }
 
-  addAgent(name, x, y, color) {
-    const agent = new Agent(this._nextId++, name, x, y, color);
+  addAgent(name, x, y, color, spriteType) {
+    const agent = new Agent(this._nextId++, name, x, y, color, spriteType);
     this.agents.set(name.toLowerCase(), agent);
     return agent;
   }
