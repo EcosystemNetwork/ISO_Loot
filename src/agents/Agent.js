@@ -1,5 +1,6 @@
 const VALID_STATES = ['idle', 'moving', 'gathering', 'building', 'exploring'];
 const MOVE_SPEED = 3; // tiles per second
+const IDLE_EXPLORE_DELAY = 3; // seconds before auto-explore
 
 export default class Agent {
   static get VALID_STATES() { return VALID_STATES; }
@@ -95,7 +96,7 @@ export default class Agent {
     // auto-explore when idle with no queued actions
     if (this.state === 'idle' && this.actionQueue.length === 0) {
       this._idleTimer += deltaTime;
-      if (this._idleTimer >= 3) {
+      if (this._idleTimer >= IDLE_EXPLORE_DELAY) {
         this._idleTimer = 0;
         this.explore();
       }

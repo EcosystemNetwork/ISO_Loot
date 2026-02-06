@@ -1,3 +1,7 @@
+const CHROMA_GREEN_MIN = 80;
+const CHROMA_DOMINANCE = 1.3;
+const SPRITE_DRAW_SIZE = 48;
+
 const TILE_COLORS = {
   grass:  { fill: '#2d6a2e', stroke: '#1f4f20' },
   water:  { fill: '#1a5276', stroke: '#154360' },
@@ -176,7 +180,7 @@ export default class IsometricEngine {
       const r = data[i];
       const g = data[i + 1];
       const b = data[i + 2];
-      if (g > 80 && g > r * 1.3 && g > b * 1.3) {
+      if (g > CHROMA_GREEN_MIN && g > r * CHROMA_DOMINANCE && g > b * CHROMA_DOMINANCE) {
         data[i + 3] = 0; // transparent
       }
     }
@@ -184,7 +188,7 @@ export default class IsometricEngine {
     cctx.putImageData(imageData, 0, 0);
 
     // draw the processed frame centred on the agent position
-    const drawSize = 48;
+    const drawSize = SPRITE_DRAW_SIZE;
     const aspect = vw / vh;
     const drawW = drawSize * aspect;
     const drawH = drawSize;
