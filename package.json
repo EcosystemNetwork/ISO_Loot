@@ -1,0 +1,12 @@
+{
+  "name": "iso-loot",
+  "version": "1.0.0",
+  "description": "Isometric AI Agent Playground",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
