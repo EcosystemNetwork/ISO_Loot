@@ -12,162 +12,19 @@
       background: #0f0f1a;
       color: #e0e0e0;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    #root {
+      height: 100vh;
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 8px 16px;
-      background: #161625;
-      border-bottom: 1px solid #2a2a40;
-    }
-
-    header h1 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #7ecfff;
-      letter-spacing: 1px;
-    }
-
-    .main-area {
-      flex: 1;
-      display: flex;
-      min-height: 0;
-    }
-
-    .canvas-wrap {
-      flex: 1;
-      position: relative;
-      min-width: 0;
-    }
-
-    #gameCanvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-      background: #0b0b15;
-    }
-
-    .sidebar {
-      width: 260px;
-      background: #161625;
-      border-left: 1px solid #2a2a40;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar h2 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #7ecfff;
-      padding: 12px 14px 6px;
-    }
-
-    #agentStatus {
-      flex: 1;
-      overflow-y: auto;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      line-height: 1.6;
-    }
-
-    .agent-card {
-      background: #1e1e32;
-      border-radius: 6px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-    }
-
-    .agent-card .name {
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .agent-card .detail {
-      color: #999;
-      font-size: 0.78rem;
-    }
-
-    #messageLog {
-      height: 130px;
-      overflow-y: auto;
-      padding: 8px 14px;
-      font-size: 0.78rem;
-      color: #aaa;
-      border-top: 1px solid #2a2a40;
-    }
-
-    #messageLog .msg {
-      padding: 2px 0;
-      border-bottom: 1px solid #1a1a2e;
-    }
-
-    .prompt-bar {
-      display: flex;
-      padding: 10px 14px;
-      background: #161625;
-      border-top: 1px solid #2a2a40;
-      gap: 8px;
-    }
-
-    #promptInput {
-      flex: 1;
-      padding: 10px 14px;
-      font-size: 0.95rem;
-      border: 1px solid #2a2a40;
-      border-radius: 6px;
-      background: #1e1e32;
-      color: #e0e0e0;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    #promptInput:focus { border-color: #7ecfff; }
-
-    #promptInput::placeholder { color: #555; }
-
-    #sendBtn {
-      padding: 10px 20px;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    #sendBtn:hover { background: #1d4ed8; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🎮 ISO LOOT — AI Agent Playground</h1>
-  </header>
-
-  <div class="main-area">
-    <div class="canvas-wrap">
-      <canvas id="gameCanvas"></canvas>
-    </div>
-
-    <aside class="sidebar">
-      <h2>Agents</h2>
-      <div id="agentStatus"></div>
-      <h2>Log</h2>
-      <div id="messageLog"></div>
-    </aside>
-  </div>
-
-  <div class="prompt-bar">
-    <input id="promptInput" type="text" placeholder="e.g. Atlas move to 5,3  |  Nova explore  |  all gather wood" autocomplete="off" />
-    <button id="sendBtn">Send</button>
-  </div>
-
-  <script type="module" src="src/main.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

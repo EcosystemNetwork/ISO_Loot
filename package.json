@@ -4,9 +4,23 @@
   "description": "Isometric AI Agent Playground",
   "type": "module",
   "scripts": {
-    "start": "npx serve .",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
     "test": "node --test test/*.test.js"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "vite": "^7.3.1"
+  }
 }
